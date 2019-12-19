@@ -3,7 +3,6 @@
 #include <linux/kernel.h>
 #include <asm/unistd.h>
 #define MAX_PATH 100
-#include <linux/dirent.h>
 
 struct linux_dirent {
 	unsigned long  d_ino;     /* Inode number */
